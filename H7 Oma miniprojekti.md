@@ -182,7 +182,7 @@ Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan
 - Sinne sisään init.sls : micro init.sls
 
 
-<img width="343" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/4f348b3b-0787-4fce-b564-448b6f648168">
+<img width="344" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b5e785d-6e78-4627-9025-264d1cd7494b">
 
 
 
@@ -193,9 +193,10 @@ Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan
 
 Ajetaan ja kokeillaan: 
 
-<img width="344" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b5e785d-6e78-4627-9025-264d1cd7494b">
+<img width="343" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/4f348b3b-0787-4fce-b564-448b6f648168">
 
-Syy, miksi se näyttää pelkkää vihreätä valoa ja 
+Syy, miksi se näyttää pelkkää vihreätä valoa ja "All specified packages are already installed" johtuu siitä, että ajelin tuota useamman kerran testimielessä ja korjasin tämän sivun avulla https://www.debian.org/distrib/packages pakettien nimet, esimerkiksi firefox-esr
 
 
 Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
+https://www.debian.org/distrib/packages
