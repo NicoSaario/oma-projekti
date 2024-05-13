@@ -63,5 +63,18 @@ Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 
 - Tähän hetkeen ei tarvita mitään ylimääräistä lisäpalveluita - Host name on hyvä olla joku julkisuuteen kelpaava, joka ei paljasta mitään ylimääräistä. Sitten menee noin 30s, kun se aktivoituu.
 
+## Yhteydenotto
+- Hypätään Windowssille ja tehtyyn vagranttiin
+```vagrant ssh```
+- Asennellaan ssh - palvelin
+- Eipä tarvitse. Se on jo valmiina. Yritetään yhdistää juuri luotuun droplettiin
+- ```ssh root@'dropletip'```
+- Eipä tässä nyt mitään kauheen salaista oo, mutta piilotellaan nyt kuitenkin
+
+- <img width="444" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b4948b5-9a54-4aad-8f1e-6df209f5029e">
+
+
+
+
 
 
