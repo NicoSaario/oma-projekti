@@ -180,11 +180,11 @@ Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan
 ## Ohjelmien asenteluvaihe
 - Luon lyhyen ja yksinkertaisen tiedoston kansioon /srv/salt/: ```sudo mkdir UsefulPrograms```
 - Sinne sisään init.sls : micro init.sls
-- Tähän väliin tehdään Git-repo, jotta tiedostot haetaan sieltä ja päivitetään se
-- 
 
 
-<img width="479" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/24844551-d066-4620-a6cf-170d66543336">
+<img width="343" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/4f348b3b-0787-4fce-b564-448b6f648168">
+
+
 
 - Muokataan myös top.sls - tiedostoa ja tehdään sinne lisäys UsefulPrograms, eli äsken luodun kansion nimi
 
