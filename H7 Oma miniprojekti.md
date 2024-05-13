@@ -73,8 +73,109 @@ Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 
 - <img width="444" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b4948b5-9a54-4aad-8f1e-6df209f5029e">
 
+- Laitellaan heti palomuuri, koska kyse on kuitenkin julkisesta pilvikoneesta
+
+```sudo apt install ufw```
+
+```systemctl status ufw```
+
+<img width="425" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/e04961cf-fa05-4680-bc1e-8de8138fc0f2">
+
+Jatketaan omia ohjeita:
+- Lisätään käyttäjä ```sudo adduser nico```
+- Lyödään se sudoryhmään
+```sudo adduser nico sudo```
+- Tsekataan, että se oikeesti toimii, ennenkö heitetään koko roottikäyttäjä ulos ```ssh nico@'dropletip'``
+Siellähän se on, joten heitetään rootti ulos ```sudo usermod --lock root```
+
+## Saltin asennus DigitalOcean - Master!
+
+Kokeilin ensin peruskomentoa ```sudo apt-get install salt-master```, tämä ei kuitenkaan toiminut joten hyppään saltin omille sivuille ja katson nimenomaan Debian 12 - setuppia. https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html
+
+- Jotta salt-päivitykset saadaan kiinnitettyä uusimpaan pakettiin Debian 12, pitää tehdä seuraava:
+
+```
+mkdir /etc/apt/keyrings
+
+sudo curl -fsSL -o /etc/apt/keyrings/salt-archive-keyring-2023.gpg
+
+https://repo.saltproject.io/salt/py3/debian/12/amd64/SALT-PROJECT-GPG-PUBKEY-2023.gpg
+
+echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64] https://repo.saltproject.io/salt/py3/debian/12/amd64/latest bookworm main" | sudo tee /etc/apt/sources.list.d/salt.list
+
+```
+
+Tämän jälkeen ```sudo apt-get install salt-master```
+
+- Sivuhuomio: Olisin varmaan voinut tehdä sen myös salt-cloudilla, mutta en vielä sen functiosta ole 100% varma, joten kokeillaan tätä ensin.
+
+- Kuten näkyy, ```hostname -I``` - komennolla IP on sama, kuin DigitalOceanissa. Tämä pitää siis lyödä kiinni tuonne vagrantin tulevalle minionille
+
+<img width="455" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/d3afe081-1a12-40ca-9a62-306b9c25cb69">
 
 
+Minion (asennan nyt samalla myös micron, jotta säästän päänvaivaa. Onhan tämä vain kokeilu):
+
+```
+sudo apt-get update
+sudo apt.get install micro
+sudo apt-get install salt-minion
+```
+
+```sudoedit /etc/salt/minion```
+
+Ja seuraava sisään: masterin osoite tulee siis edellä mainitusta esimerkistä hostname - I - kohdasta.
+
+<img width="479" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/10d112e4-8c89-43ef-9887-e3ad897134bb">
+
+Potkitaan demonia ```sudo systemctl restart salt-minion.service```
+
+- Hyväksytään avain Digitalista: ```sudo salt-key -A ... Proceed y```
+- Mitään ei tapahdu. Käyn katsomassa Teron Salt Quickstart - ohjeita ja https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ lukee tuosta palomuuriasetuksista
+- On siis avattava portit 4505/tcp ja 4506/tcp
+
+```
+sudo ufw allow 4505/tcp
+sudo ufw allow 4506/tcp
+```
+
+Potkitaan sitäkin välillä: ```sudo sustemctl restart ufw```
+Päällä on! 
+
+<img width="427" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0ba0bdd2-17ec-4957-b918-f77e040ef841">
+
+- Hetken pohdiskelin, miksei avaimia tule näkyviin ja tarkistelin kaikki uudelleen. Kopion masterin IP-osoitteen uudelleen ja potkin salt-minionia, jolloin avain tuli näkyviin:
+
+<img width="219" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0ed1e199-c6ad-44f7-86d0-5bc8afb6769e">
+
+- Tähän vain y ja avain on hyväksytty
 
 
+# Testi
+Tässä vaiheessa tärkeä testata, että orjan ja koneen välinen yhteys oikeasti toimii.
 
+Luodaan kansio Digitalille ja hypätään sinne ```sudo mkdir -p /srv/salt/; cd /srv/salt/;```
+
+- Sinne sisään: 
+
+<img width="455" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/4d5d7560-e3b1-423b-82cf-34a3b8bb4e38">
+
+Tehdään kansio ```sudo mkdir testi```
+Sinne init.sls - tiedosto, jonka sisään:
+
+<img width="478" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/3b858a02-0cf6-483d-a852-10fc7af327c6">
+
+Ajetaan ja katsotaan, toimiiko: 
+
+```sudo salt '*' state.apply```
+
+Katsotaan vielä, että se tuli perille orjalle:
+
+```cd /tmp```
+
+<img width="387" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/28c15b86-621b-4d80-9b2c-3a983ebf0ce2">
+
+Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan yhteyden joka ajaa tilan salt-call state.apply! Ihmettelen kyllä itsekkin vähän.
+
+
+Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
