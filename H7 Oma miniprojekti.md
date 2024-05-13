@@ -177,5 +177,22 @@ Katsotaan vielä, että se tuli perille orjalle:
 
 Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan yhteyden joka ajaa tilan salt-call state.apply! Ihmettelen kyllä itsekkin vähän.
 
+## Ohjelmien asenteluvaihe
+- Luon lyhyen ja yksinkertaisen tiedoston kansioon /srv/salt/: ```sudo mkdir UsefulPrograms```
+- Sinne sisään init.sls : micro init.sls
+- Tähän väliin tehdään Git-repo, jotta tiedostot haetaan sieltä ja päivitetään se
+- 
+
+
+<img width="479" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/24844551-d066-4620-a6cf-170d66543336">
+
+- Muokataan myös top.sls - tiedostoa ja tehdään sinne lisäys UsefulPrograms, eli äsken luodun kansion nimi
+
+<img width="474" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/83c579db-fd4c-4129-be3a-13476342c2ec">
+
+
+
+
+
 
 Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
