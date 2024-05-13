@@ -191,8 +191,11 @@ Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan
 <img width="474" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/83c579db-fd4c-4129-be3a-13476342c2ec">
 
 
+Ajetaan ja kokeillaan: 
 
+<img width="344" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b5e785d-6e78-4627-9025-264d1cd7494b">
 
+Syy, miksi se näyttää pelkkää vihreätä valoa ja 
 
 
 Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
