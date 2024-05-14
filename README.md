@@ -12,10 +12,10 @@ Ajattelin siis tekeväni lähtövalmisteluita varten valmiit asennukset ohjelmil
 
 Teen siis Pilvipalvelusta master - koneen, jolla asentelen orjille seuraavat ohjelmat hyödyntäen herra-orja-arkkitehtuuria, jotka ainakin aluksi ovat tarpeellisia itselleni:
 
-Micro
-7zip
-Firefox (ei tarvita, valmiiksi asennettu)
-Thunderbird
-Git
-Wireshark
-Olisin mieluusti lisännyt myös edellisen kurssin apachen julkisen webbisivun ja sen luomisen automatisoinnin, mutta nyt ei aika tähän valitettavasti riittänyt. Piti myös tehdä erilaisia automaatiomuutoksia mm. Firefoxiin.
+- Micro
+- 7zip
+- Firefox (ei tarvita, valmiiksi asennettu)
+- Thunderbird
+- Git
+- Wireshark
+- Olisin mieluusti lisännyt myös edellisen kurssin apachen julkisen webbisivun ja sen luomisen automatisoinnin, mutta nyt ei aika tähän valitettavasti riittänyt. Piti myös tehdä erilaisia automaatiomuutoksia mm. Firefoxiin.
