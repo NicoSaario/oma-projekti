@@ -32,14 +32,15 @@ Teen siis Pilvipalvelusta master - koneen, jolla asentelen orjille seuraavat ohj
 - Git
 - Wireshark
 
-Olisin mieluusti lisännyt myös edellisen kurssin apachen julkisen webbisivun ja sen luomisen automatisoinnin, mutta nyt ei aika tähän valitettavasti riittänyt. Piti myös tehdä erilaisia automaatiomuutoksia mm. FireFoxiin.
+Olisin mieluusti lisännyt myös edellisen kurssin apachen julkisen webbisivun ja sen luomisen automatisoinnin, mutta nyt ei aika tähän valitettavasti riittänyt. Piti myös tehdä erilaisia automaatiomuutoksia mm. Firefoxiin.
 
 ## Suoritus 
+Kaikki komennot löytyvät korjatussa - oikeassa järjestyksessä lopusta. Tätä seuraamallakin pääsee myös kyllä perille! Vagrantin sijaan voi hyvin käyttää vaikka .iso - kuvasta asenneltua Debiania tms.
 
 Koska pääsen käsittääkseni DigitalOceaniin kiinni käytännössä mistä vain, teen alkuvalmisteluina PowerShellin ja Vagrantin yhteistyölle kansion 'omaprojekti', johon VagrantFile tulee. 
 Pitää tehdä vielä toinen kone, joka toimii sitten orjana testaamiseen.
 
-- Powerhsellin kotihakemistoon ```mkdir -p omaprojekti; cd omaprojekti ```
+- PowerShellin kotihakemistoon ```mkdir -p omaprojekti; cd omaprojekti ```
 Tämä luo kansion, johon ```vagrant init debian/bullseye64```
 Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 
