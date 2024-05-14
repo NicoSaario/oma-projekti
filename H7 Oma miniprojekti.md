@@ -1,6 +1,8 @@
 # Oma miniprojekti
 Projekti on loppuhuipennus Palvelinten Hallinta - kurssille ja kaikki tehtävänannot löytyvät oheisesta linkistä: https://terokarvinen.com/2024/configuration-management-2024-spring/
 
+Projekti on viimeinen osa tehtäviä - muut tehtävien suoritukset löytyvät täältä: https://github.com/NicoSaario/palvelinten-hallinta/blob/main/h6%20Benchmark.m
+
 Projekti on tehty Windows 11 - Home - käyttöjärjestelmällä, päivitykset ajettu 13/05/2024 asti.
 
 AMD Ryzen 5 4500U, RAM 8 Gt.
@@ -30,11 +32,12 @@ Teen siis Pilvipalvelusta master - koneen, jolla asentelen orjille seuraavat ohj
 - Wireshark
 
 
-## Suoritus
+## Suoritus 
 
 Koska pääsen käsittääkseni DigitalOceaniin kiinni käytännössä mistä vain, teen alkuvalmisteluina PowerShellin ja Vagrantin yhteistyölle kansion 'omaprojekti', johon VagrantFile tulee. 
 Pitää tehdä vielä toinen kone, joka toimii sitten orjana testaamiseen.
-Powerhsellin kotihakemistoon ```mkdir -p omaprojekti; cd omaprojekti ```
+
+- Powerhsellin kotihakemistoon ```mkdir -p omaprojekti; cd omaprojekti ```
 Tämä luo kansion, johon ```vagrant init debian/bullseye64```
 Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 
@@ -85,7 +88,7 @@ Jatketaan omia ohjeita:
 - Lisätään käyttäjä ```sudo adduser nico```
 - Lyödään se sudoryhmään
 ```sudo adduser nico sudo```
-- Tsekataan, että se oikeesti toimii, ennenkö heitetään koko roottikäyttäjä ulos ```ssh nico@'dropletip'``
+- Tsekataan, että se oikeesti toimii, ennenkö heitetään koko roottikäyttäjä ulos ```ssh nico@'dropletip'```
 Siellähän se on, joten heitetään rootti ulos ```sudo usermod --lock root```
 
 ## Saltin asennus DigitalOcean - Master!
@@ -196,6 +199,36 @@ Ajetaan ja kokeillaan:
 <img width="343" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/4f348b3b-0787-4fce-b564-448b6f648168">
 
 Syy, miksi se näyttää pelkkää vihreätä valoa ja "All specified packages are already installed" johtuu siitä, että ajelin tuota useamman kerran testimielessä ja korjasin tämän sivun avulla https://www.debian.org/distrib/packages pakettien nimet, esimerkiksi firefox-esr
+
+Kokeilin tehdä graafisen käyttöliittymän Vagrantille, mutta siitä ei nyt tullut mitään, mutta asentelen Debianin .iso - kuvakkeesta uuden virtuaalikoneen, koska haluan raporttia varten testata ne vielä GUI:n - kautta kuvankaappauksineen. Saapahan samalla testattua toimivuuden.
+
+Kyseessä siis täysin puhtaan asennuksen jälkeen oleva kone. Tein ainoastaan edellämainitut salttikonfiguraatiot.
+
+<img width="287" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/785794f3-13c6-45c4-9028-a84ecc1c8d23">
+
+Siellä ollaan sisällä. Nyt lyödään state.apply päälle
+
+<img width="278" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/3a45cbee-fd4c-4039-8d4b-99be7dcbd976">
+
+
+<img width="327" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/9d1d5560-0846-48d0-832f-977bd213d466">
+
+
+Wireshark:
+
+<img width="637" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/9f87acd7-1693-44be-8300-32ffbbf816d9">
+
+Microeditori:
+
+<img width="629" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/18e215d3-22d0-4347-aa1f-1ee00dd28aa7">
+
+Thunderbird: 
+
+<img width="637" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/181387b1-c8b7-421e-a921-f7b2b79de9cd">
+
+git:
+
+<img width="449" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/8d792a77-cfc9-4d11-b0c3-7d53cde73844">
 
 
 Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
