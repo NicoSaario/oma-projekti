@@ -234,6 +234,83 @@ git:
 
 <img width="627" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/26325955-5d81-4d35-9018-4b0465614b12">
 
+## Kaikki komennot korjatussa järjestyksessä
+### Yhteydenotto
+```mkdir -p omaprojekti; cd omaprojekti```
 
-Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
-https://www.debian.org/distrib/packages
+```vagrant init debian/bullseye64```
+
+```vagrant up```
+
+```ssh root@'dropletip'```
+
+```sudo apt install ufw```
+```sudo ufw allow 22/tcp```
+```sudo ufw allow 4505/tcp```
+```sudo ufw allow 4506/tcp```
+```sudo systemctl restart ufw```
+```systemctl status ufw```
+```sudo adduser nico```
+```sudo adduser nico sudo```
+```ssh käyttäjätähän@'dropletip'```
+```sudo usermod --lock root```
+
+--> DigitalOcean Masteri
+
+```sudo apt-get install salt-master```
+```mkdir /etc/apt/keyrings
+
+sudo curl -fsSL -o /etc/apt/keyrings/salt-archive-keyring-2023.gpg
+
+https://repo.saltproject.io/salt/py3/debian/12/amd64/SALT-PROJECT-GPG-PUBKEY-2023.gpg
+
+echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64] https://repo.saltproject.io/salt/py3/debian/12/amd64/latest bookworm main" | sudo tee /etc/apt/sources.list.d/salt.list
+```
+### Herraorja DigitalOcean
+```sudo apt-get install salt-master```
+```hostname -I```
+
+--> Vagrantminion
+
+```sudo apt-get update```
+```sudo apt-get install micro```
+```sudo apt-get install salt-minion```
+```sudoedit /etc/salt/minion```
+```sudo systemctl restart salt-minion.service```
+```sudo salt-key -A```
+
+--> Master
+
+### Testi
+```sudo mkdir -p /srv/salt/; cd /srv/salt/```
+- Tiedosto top.sls
+```cd .. ```
+```sudo mkdir testi```
+- Tiedosto init.sls
+```sudo salt '*' state.apply```
+
+-> Orjalle
+
+```cd /tmp```
+
+### Asenteluvaihe
+
+```cd /srv/salt/```
+```sudo mkdir UsefulPrograms```
+- Tiedosto init.sls
+- Muokataan tuo UsefulPrograms myös top.sls - tiedostoon takaisin
+```cd .. ```
+```micro top.sls```
+```sudo salt-call '*' state.apply```
+
+
+## Lähteet: 
+- Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
+
+- Debian packages, Luettavissa: https://www.debian.org/distrib/packages (luettu 14.05.2024)
+
+- Salt Quickstart, Tero Karvinen (2018), luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/
+
+- Tehtävänanto "Infra as Code", Tero Karvinen (2024), luettavissa: https://terokarvinen.com/2024/configuration-management-2024-spring/
+
+- Omat repot
