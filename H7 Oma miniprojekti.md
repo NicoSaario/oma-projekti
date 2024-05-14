@@ -223,6 +223,7 @@ base:
   '*':
     - testi
     - UsefulPrograms
+```
 
 <img width="474" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/83c579db-fd4c-4129-be3a-13476342c2ec">
 
@@ -318,9 +319,24 @@ echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64]
 ### Testi
 ```sudo mkdir -p /srv/salt/; cd /srv/salt/```
 - Tiedosto top.sls
+
+```
+base:
+  '*':
+    - testi
+ ```
+
 ```cd .. ```
+
 ```sudo mkdir testi```
+
 - Tiedosto init.sls
+
+```
+/tmp/moikkatesti:
+  file.managed
+```
+
 ```sudo salt '*' state.apply```
 
 -> Orjalle
@@ -332,9 +348,34 @@ echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64]
 ```cd /srv/salt/```
 ```sudo mkdir UsefulPrograms```
 - Tiedosto init.sls
+
+```
+Installation:
+  pkg.installed:
+    - pkgs:
+      - micro
+      - firefox-esr
+      - thunderbird
+      - 7zip
+      - wireshark-qt
+      - git
+```
+
+
+
+
 - Muokataan tuo UsefulPrograms myös top.sls - tiedostoon takaisin
 ```cd .. ```
 ```micro top.sls```
+
+```
+base:
+  '*':
+    - testi
+    - UsefulPrograms
+```
+
+
 ```sudo salt-call '*' state.apply```
 
 
