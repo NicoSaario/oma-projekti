@@ -13,6 +13,8 @@ Powershell + Vagrant + DigitalOcean + Debian 12
 
 Projektin tekeminen aloitettu 13.05.2024 klo 16.00 taukojen kanssa. Koko settiin kului nollasta noin 4 - tuntia. Lueskellessa ja pähkäillessä se isoin aika meni. Itse rakenne on hyvin simppeli.
 
+@Nico Saario
+
 # Projektin idea ja tarkoitus
 
 Kuvitteellisessa tilanteessa, sain työkutsun Amsterdamiin. En saa ottaa mukaani tietokonetta tai puhelinta kotioloista ja saan sieltä kaksi tietokonetta käyttööni, jotka molemmat pyörivät Linuxilla.
