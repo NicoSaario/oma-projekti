@@ -1,5 +1,6 @@
 # Oma miniprojekti
 Tekijä: Nico Saario (14.05.2024)
+
 Lisenssi: GNU General Public Licence v.3.0
 
 Projekti on loppuhuipennus Palvelinten Hallinta - kurssille ja kaikki tehtävänannot löytyvät oheisesta linkistä: https://terokarvinen.com/2024/configuration-management-2024-spring/
