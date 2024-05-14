@@ -44,7 +44,7 @@ Pitää tehdä vielä toinen kone, joka toimii sitten orjana testaamiseen.
 Tämä luo kansion, johon ```vagrant init debian/bullseye64```
 Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 
-- Käytän hyväkseni aikaisempaa Linux Palvelimet kurssia ja GitHubin Student - pakettia, jonka ansiosta käytössäni on jo valmiiksi DigitalOcean ja sinne muistaakseni 200€ crediittejä.
+- Käytän hyväkseni aikaisempaa Linux Palvelimet kurssia ja GitHubin Student - pakettia, jonka ansiosta käytössäni on jo valmiiksi DigitalOcean ja sinne ilmaisia crediittejä.
 - Tuosta löytyy ohjeet, joita noudattelen samalla: https://github.com/NicoSaario/Linux_Palvelimet/blob/main/h4%20Maailma%20kuulee.md
 
 ## DigitalOcean valmistelu
@@ -52,7 +52,7 @@ Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 
 <img width="750" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/944e895e-e489-449d-945a-9a4e813ee42e">
 
-- Sitten valitaan serveri. Tästä paras ottaa se, mihin on pienin latenssi eli lähin mahdollinen. Sattumalta työpaikkakin sijaitsee Amsterdamissa, joten mennään sillä.
+- Sitten valitaan serveri. Tästä paras ottaa se, mihin on pienin latenssi eli lähin mahdollinen. Sattumalta se huominen työpaikkakin sijaitsee Amsterdamissa, joten mennään sillä.
 
 <img width="685" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/8d2640ac-d7ca-4c5d-a047-564a864e59da">
 
@@ -75,7 +75,7 @@ Tämän jälkeen käynnistellään vagrant ```vagrant up``` - komennolla
 - Asennellaan ssh - palvelin
 - Eipä tarvitse. Se on jo valmiina. Yritetään yhdistää juuri luotuun droplettiin
 - ```ssh root@'dropletip'```
-- Eipä tässä nyt mitään kauheen salaista oo, mutta piilotellaan nyt kuitenkin
+- Eipä tässä nyt mitään kauheen salaista oo, mutta piilotellaan nyt kuitenkin. Tärkeintä, että tietää sen, mitä hyväksyy.
 
 - <img width="444" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b4948b5-9a54-4aad-8f1e-6df209f5029e">
 
@@ -113,14 +113,14 @@ echo "deb [signed-by=/etc/apt/keyrings/salt-archive-keyring-2023.gpg arch=amd64]
 
 Tämän jälkeen ```sudo apt-get install salt-master```
 
-- Sivuhuomio: Olisin varmaan voinut tehdä sen myös salt-cloudilla, mutta en vielä sen functiosta ole 100% varma, joten kokeillaan tätä ensin.
+- Sivuhuomio: Olisin varmaan voinut tehdä sen myös salt-cloudilla, mutta en vielä sen functiosta ole 100% varma, joten kokeillaan tätä ensin. # Edit. Se olisi hyvä siihen, jos ottaisin vaikka useamman koneen DigitalOceanin kautta. Saltti tekisi automaattisen hierarkian sitä kautta.
 
 - Kuten näkyy, ```hostname -I``` - komennolla IP on sama, kuin DigitalOceanissa. Tämä pitää siis lyödä kiinni tuonne vagrantin tulevalle minionille
 
 <img width="455" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/d3afe081-1a12-40ca-9a62-306b9c25cb69">
 
 
-Minion (asennan nyt samalla myös micron, jotta säästän päänvaivaa. Onhan tämä vain kokeilu):
+Minion (asennan nyt samalla myös micron, jotta säästän päänvaivaa. Final test tulee sit ihan lopuksi):
 
 ```
 sudo apt-get update
@@ -162,12 +162,25 @@ Tässä vaiheessa tärkeä testata, että orjan ja koneen välinen yhteys oikeas
 
 Luodaan kansio Digitalille ja hypätään sinne ```sudo mkdir -p /srv/salt/; cd /srv/salt/;```
 
-- Sinne sisään: 
+- Sinne sisään:
+
+```
+base:
+  '*':
+    - testi
+```
+
+MUISTA pelkkien välilyöntien käyttö! Base: -enter - kaksi välilyöntiä '*': - enter - kaksi välilyöntiä - väli testi jne.
 
 <img width="455" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/4d5d7560-e3b1-423b-82cf-34a3b8bb4e38">
 
 Tehdään kansio ```sudo mkdir testi```
 Sinne init.sls - tiedosto, jonka sisään:
+
+```
+/tmp/moikkatesti:
+  file.managed
+```
 
 <img width="478" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/3b858a02-0cf6-483d-a852-10fc7af327c6">
 
@@ -187,12 +200,29 @@ Onnistuin siis juuri luomaan pilvipalvelun kautta Windowsin Vagrantille toimivan
 - Luon lyhyen ja yksinkertaisen tiedoston kansioon /srv/salt/: ```sudo mkdir UsefulPrograms```
 - Sinne sisään init.sls : micro init.sls
 
+```
+Installation:
+  pkg.installed:
+    - pkgs:
+      - micro
+      - firefox-esr
+      - thunderbird
+      - 7zip
+      - wireshark-qt
+      - git
+```
 
 <img width="344" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/0b5e785d-6e78-4627-9025-264d1cd7494b">
 
 
 
 - Muokataan myös top.sls - tiedostoa ja tehdään sinne lisäys UsefulPrograms, eli äsken luodun kansion nimi
+
+```
+base:
+  '*':
+    - testi
+    - UsefulPrograms
 
 <img width="474" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/83c579db-fd4c-4129-be3a-13476342c2ec">
 
