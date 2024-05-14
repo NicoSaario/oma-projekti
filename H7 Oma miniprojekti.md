@@ -250,7 +250,7 @@ Siellä ollaan sisällä. Nyt lyödään state.apply päälle
 
 <img width="327" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/9d1d5560-0846-48d0-832f-977bd213d466">
 
-Kuten näkyy, Firefox oli jo valmiiksi asennettu. Unohdin jostain syystä kokonaan.
+Kuten näkyy, Firefox oli jo valmiiksi asennettu. Unohdin jostain syystä kokonaan. Esimerkit onnistuneista asennuksista.
 
 Wireshark:
 
