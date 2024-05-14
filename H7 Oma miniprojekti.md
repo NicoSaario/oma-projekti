@@ -11,7 +11,7 @@ Aika: Itä-Euroopan normaaliaika Aikavyöhyke: Suomi (UTC+2)
 
 Powershell + Vagrant + DigitalOcean + Debian 12
 
-Projektin tekeminen aloitettu 13.05.2024 klo 16.00 taukojen kanssa. Koko settiin kului nollasta noin 4 - tuntia. Lueskellessa ja pähkäillessä se isoin aika meni. Itse rakenne on hyvin simppeli.
+Projektin tekeminen aloitettu 13.05.2024 klo 16.00 taukojen kanssa. Koko settiin kului nollasta noin 4 - tuntia. Lueskellessa ja pähkäillessä se isoin aika meni. Itse rakenne on hyvin simppeli ja uskoisin tämän ohjeen kanssa menevän noin +-60min. Päivittelen, kun ehdin sen testaamaan itse.
 
 @Nico Saario
 
