@@ -30,6 +30,7 @@ Teen siis Pilvipalvelusta master - koneen, jolla asentelen orjille seuraavat ohj
 - Git
 - Wireshark
 
+Olisin mieluusti lisännyt myös edellisen kurssin apachen julkisen webbisivun ja sen luomisen automatisoinnin, mutta nyt ei aika tähän valitettavasti riittänyt. Piti myös tehdä erilaisia automaatiomuutoksia mm. FireFoxiin.
 
 ## Suoritus 
 
