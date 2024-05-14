@@ -230,6 +230,10 @@ git:
 
 <img width="449" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/8d792a77-cfc9-4d11-b0c3-7d53cde73844">
 
+7zip:
+
+<img width="627" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/26325955-5d81-4d35-9018-4b0465614b12">
+
 
 Salt install guide Debian, luettavissa: https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/debian.html (luettu 14.05.2024) 
 https://www.debian.org/distrib/packages
