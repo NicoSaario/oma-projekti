@@ -242,6 +242,9 @@ Kyseessä siis täysin puhtaan asennuksen jälkeen oleva kone. Tein ainoastaan e
 
 Siellä ollaan sisällä. Nyt lyödään state.apply päälle
 
+
+## Lopputulos
+
 <img width="278" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/3a45cbee-fd4c-4039-8d4b-99be7dcbd976">
 
 
@@ -269,7 +272,8 @@ git:
 
 <img width="627" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/26325955-5d81-4d35-9018-4b0465614b12">
 
-## Kaikki komennot korjatussa järjestyksessä
+# Kaikki komennot korjatussa järjestyksessä
+
 ### Yhteydenotto
 ```mkdir -p omaprojekti; cd omaprojekti```
 
