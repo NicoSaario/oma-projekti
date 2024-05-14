@@ -388,8 +388,8 @@ base:
 
 - Debian packages, Luettavissa: https://www.debian.org/distrib/packages (luettu 14.05.2024)
 
-- Salt Quickstart, Tero Karvinen (2018), luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/
+- Salt Quickstart, Tero Karvinen (2018), luettavissa: https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/ (luettu 14.05.2024)
 
-- Tehtävänanto "Infra as Code", Tero Karvinen (2024), luettavissa: https://terokarvinen.com/2024/configuration-management-2024-spring/
+- Tehtävänanto "Infra as Code", Tero Karvinen (2024), luettavissa: https://terokarvinen.com/2024/configuration-management-2024-spring/ (luettu 14.05.2024)
 
 - Omat repot
