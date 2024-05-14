@@ -24,9 +24,8 @@ Tässä hyödynnän pilvipalvelun vuokraamista DigitalOcean - palvelusta, jotta 
 Teen siis Pilvipalvelusta master - koneen, jolla asentelen orjille seuraavat ohjelmat hyödyntäen herra-orja-arkkitehtuuria, jotka ainakin aluksi ovat tarpeellisia itselleni:
 
 - Micro
-- Apache
-- Firefox
-- Spotify
+- 7zip
+- Firefox (ei tarvita, valmiiksi asennettu)
 - Thunderbird
 - Git
 - Wireshark
@@ -213,12 +212,13 @@ Siellä ollaan sisällä. Nyt lyödään state.apply päälle
 
 <img width="327" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/9d1d5560-0846-48d0-832f-977bd213d466">
 
+Kuten näkyy, Firefox oli jo valmiiksi asennettu. Unohdin jostain syystä kokonaan.
 
 Wireshark:
 
 <img width="637" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/9f87acd7-1693-44be-8300-32ffbbf816d9">
 
-Microeditori:
+Micro:
 
 <img width="629" alt="image" src="https://github.com/NicoSaario/oma-projekti/assets/156778628/18e215d3-22d0-4347-aa1f-1ee00dd28aa7">
 
